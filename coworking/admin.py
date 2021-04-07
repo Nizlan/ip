@@ -1,5 +1,11 @@
 from django.contrib import admin
 
-from .models import Place
+from .models import Place, Category
 
-admin.site.register(Place)
+
+class PlaceAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'location')
+
+
+admin.site.register(Place, PlaceAdmin)
+admin.site.register(Category)
