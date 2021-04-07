@@ -9,6 +9,7 @@ class Place(models.Model):
     location = models.TextField(verbose_name='Местоположение')
     price = models.FloatField(verbose_name='Цена, р')
     categories = models.ForeignKey('Categories', null=True, on_delete=models.PROTECT, verbose_name='Категория')
+    services = models.ManyToManyField('Services')
 
     def __str__(self):
         return self.name
@@ -28,3 +29,14 @@ class Categories(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+
+class Services(models.Model):
+    title = models.CharField(max_length=150, verbose_name='Название')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Услуга'
+        verbose_name_plural = 'Услуги'
