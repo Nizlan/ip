@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f84eb46a-f445-421c-bcf8-f8f5f961ada4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coworking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/coworking/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coworking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/coworking/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ip/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
