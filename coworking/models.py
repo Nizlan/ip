@@ -11,7 +11,7 @@ class Place(models.Model):
     price = models.FloatField(verbose_name='Цена за час, р')
     categories = models.ForeignKey('Categories', null=True, on_delete=models.PROTECT, verbose_name='Категория')
     services = models.ManyToManyField('Services')
-    available_time = models.ForeignKey('AvailableTime', null=True, on_delete=models.PROTECT, verbose_name='Время работы')
+    available_time = models.ForeignKey('AvailableTime', null=True, on_delete=models.DO_NOTHING, verbose_name='Время работы')
 
     def __str__(self):
         return self.name
@@ -63,8 +63,7 @@ class AvailableTime(models.Model):
 class BookedTime(models.Model):
     start = models.TimeField(null=True, verbose_name='Начало работы')
     end = models.TimeField(null=True, verbose_name='Конец работы')
-    place = models.ForeignKey('Place', null=True, on_delete=models.CASCADE, verbose_name='Место')
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    reservation = models.ForeignKey('Reservation', null=True, on_delete=models.CASCADE, verbose_name='Бронь')
 
     def __str__(self):
         return f'{self.start} - {self.end}'
@@ -72,3 +71,12 @@ class BookedTime(models.Model):
     class Meta:
         verbose_name = 'Забронированное время'
         verbose_name_plural = 'Забронированные часы'
+
+
+class Reservation(models.Model):
+    place = models.ForeignKey('Place', null=True, on_delete=models.CASCADE, verbose_name='Место')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        verbose_name = 'Бронь'
+        verbose_name_plural = 'Заказы на бронь'
