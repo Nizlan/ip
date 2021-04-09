@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f84eb46a-f445-421c-bcf8-f8f5f961ada4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/coworking/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0002_auto_20210407_2322.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0003_auto_20210407_2328.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0004_auto_20210407_2329.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0005_services.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0006_auto_20210407_2340.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0007_auto_20210408_1347.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0008_auto_20210408_1351.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0009_auto_20210408_1354.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0010_auto_20210408_1419.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0011_bookedtime.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0012_auto_20210408_2055.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coworking/migrations/0013_auto_20210409_1428.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coworking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/coworking/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
