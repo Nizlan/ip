@@ -8,8 +8,8 @@ class FreeServices(models.Model):
     free_wifi = models.BooleanField(verbose_name="Бесплатный wi-fi")
     parking_spaces = models.BooleanField(verbose_name="Свободные парковочные места")
 
-    def __str__(self):
-        return self.free_tea
+    # def __str__(self):
+    #     return self.free_tea
 
     class Meta:
         verbose_name = 'Услуги'

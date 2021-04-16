@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from services.models import Equipment, UniqueQualities
 # Create your models here.
 
 
@@ -11,6 +11,9 @@ class Place(models.Model):
     price = models.FloatField(verbose_name='Цена за час, р')
     categories = models.ForeignKey('Categories', null=True, on_delete=models.PROTECT, verbose_name='Категория')
     available_time = models.ForeignKey('AvailableTime', null=True, on_delete=models.DO_NOTHING, verbose_name='Время работы')
+    equipment = models.ForeignKey('services.Equipment', null=True, verbose_name='Оснащение', on_delete=models.PROTECT)
+    uniqueQualities = models.ForeignKey('services.UniqueQualities', null=True,  verbose_name='Уникальные качества', on_delete=models.PROTECT)
+    freeServices = models.ForeignKey('services.FreeServices', null=True, verbose_name='Бесплатные услуги', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
@@ -84,3 +87,15 @@ class Comments(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+
+class GroupOfPeople(models.Model):
+    people = models.ManyToManyField(User, null=True, verbose_name='Группа людей')
+
+    def __str__(self):
+        return self.people
+
+    class Meta:
+        verbose_name = 'Группа людей'
+        verbose_name_plural = 'Группы людей'
+
