@@ -10,7 +10,6 @@ class Place(models.Model):
     location = models.TextField(verbose_name='Местоположение')
     price = models.FloatField(verbose_name='Цена за час, р')
     categories = models.ForeignKey('Categories', null=True, on_delete=models.PROTECT, verbose_name='Категория')
-    services = models.ManyToManyField('Services')
     available_time = models.ForeignKey('AvailableTime', null=True, on_delete=models.DO_NOTHING, verbose_name='Время работы')
 
     def __str__(self):
@@ -31,17 +30,6 @@ class Categories(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
-
-
-class Services(models.Model):
-    title = models.CharField(max_length=150, verbose_name='Название')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'Услуга'
-        verbose_name_plural = 'Услуги'
 
 
 class AvailableTime(models.Model):
@@ -74,8 +62,8 @@ class BookedTime(models.Model):
 
 
 class Reservation(models.Model):
-    place = models.ForeignKey('Place', null=True, on_delete=models.CASCADE, verbose_name='Место')
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    place = models.ForeignKey('Place', null=True, on_delete=models.PROTECT, verbose_name='Место')
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, verbose_name='Пользователь')
 
     def __str__(self):
         return f'{self.place} - {self.user}'
@@ -83,3 +71,16 @@ class Reservation(models.Model):
     class Meta:
         verbose_name = 'Бронь'
         verbose_name_plural = 'Заказы на бронь'
+
+
+class Comments(models.Model):
+    text = models.TextField(verbose_name='Текст')
+    place = models.ForeignKey('Place',  null=True, on_delete=models.PROTECT, verbose_name='Место')
+    user = models.ForeignKey(User, null=True, on_delete=models.PROTECT, verbose_name='ользователь')
+
+    def __str__(self):
+        return f'{self.place} - {self.user}'
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'

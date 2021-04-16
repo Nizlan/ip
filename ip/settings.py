@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'coworking.apps.CoworkingConfig'
+    'coworking.apps.CoworkingConfig',
+    'rest_framework',
+    'services.apps.ServicesConfig'
 ]
 
 MIDDLEWARE = [
