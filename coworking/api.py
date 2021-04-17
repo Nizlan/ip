@@ -1,6 +1,6 @@
-from .models import Reservation, Place
+from .models import Reservation, Place, BookedTime
 from rest_framework import viewsets, permissions
-from .serializers import ReservationSerializer, UserSerializer, PlaceSerializer
+from .serializers import ReservationSerializer, UserSerializer, PlaceSerializer, BookedTimeSerializer
 from django.contrib.auth.models import User
 
 
@@ -26,4 +26,12 @@ class PlaceViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = PlaceSerializer
+
+
+class BookedTimeViewSet(viewsets.ModelViewSet):
+    queryset = BookedTime.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = BookedTimeSerializer
 

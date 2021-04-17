@@ -7,6 +7,7 @@ class FreeServicesAdmin(admin.ModelAdmin):
     inlines = [PlaceInline]
     list_display = ('free_tea', 'free_wifi', 'parking_spaces')
     actions = ["addServices", "deleteServices"]
+
     def addServices(self, request, queryset):
         row_update = queryset.update(free_tea=True, free_wifi=True, parking_spaces=True)
 
