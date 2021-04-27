@@ -54,7 +54,7 @@ class AvailableTime(models.Model):
 class BookedTime(models.Model):
     start = models.TimeField(null=True, verbose_name='Начало')
     end = models.TimeField(null=True, verbose_name='Конец')
-    reservation = models.ForeignKey('Reservation', null=True, on_delete=models.CASCADE, verbose_name='Бронь')
+    place = models.ForeignKey('Place', null=True, verbose_name='Место', on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f'{self.start} - {self.end}'
@@ -65,11 +65,11 @@ class BookedTime(models.Model):
 
 
 class Reservation(models.Model):
-    place = models.ForeignKey('Place', null=True, on_delete=models.PROTECT, verbose_name='Место')
+    booked = models.ForeignKey('BookedTime', null=True, on_delete=models.PROTECT, verbose_name='Место')
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, verbose_name='Пользователь')
 
     def __str__(self):
-        return f'{self.place} - {self.user}'
+        return f'{self.booked} - {self.user}'
 
     class Meta:
         verbose_name = 'Бронь'
