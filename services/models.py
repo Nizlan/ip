@@ -22,7 +22,7 @@ class Equipment(models.Model):
     conference_hall = models.BooleanField(verbose_name="Наличие конференц зала")
 
     def __str__(self):
-        return self.area
+        return str(self.area)
 
     class Meta:
         verbose_name = 'Оснащение'

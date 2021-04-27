@@ -7,8 +7,8 @@ from .models import Place, Categories, BookedTime, Reservation, AvailableTime, C
 from import_export import resources, fields
 from import_export.admin import ImportExportActionModelAdmin
 
-class BookedTimeInline(admin.TabularInline):
-    model = BookedTime
+# class BookedTimeInline(admin.TabularInline):
+#     model = BookedTime
 
 
 class PlaceInline(admin.TabularInline):
@@ -28,14 +28,14 @@ class PlaceResource(resources.ModelResource):
 
 class PlaceAdmin(ImportExportActionModelAdmin):
     resource_class = PlaceResource
-    inlines = [ReservationInline]
+    # inlines = [ReservationInline]
     list_display = ('name', 'location', 'price')
     search_fields = ('name',)
     list_filter = ('categories',)
 
 
-class ReservationAdmin(admin.ModelAdmin):
-    inlines = [BookedTimeInline]
+# class ReservationAdmin(admin.ModelAdmin):
+#     inlines = [BookedTimeInline]
 
 
 class UserAdmin(BaseUserAdmin):
@@ -50,7 +50,7 @@ admin.site.register(Place, PlaceAdmin)
 admin.site.register(Categories, CategoriesAdmin)
 admin.site.register(AvailableTime)
 admin.site.register(BookedTime)
-admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(Reservation)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Comments)

@@ -9,11 +9,11 @@ class Place(models.Model):
     description = models.TextField(verbose_name='Описание')
     location = models.TextField(verbose_name='Местоположение')
     price = models.FloatField(verbose_name='Цена за час, р')
-    categories = models.ForeignKey('Categories', null=True, on_delete=models.PROTECT, verbose_name='Категория')
+    categories = models.ForeignKey('Categories', null=True, on_delete=models.DO_NOTHING, verbose_name='Категория')
     available_time = models.ForeignKey('AvailableTime', null=True, on_delete=models.DO_NOTHING, verbose_name='Время работы')
-    equipment = models.ForeignKey('services.Equipment', null=True, verbose_name='Оснащение', on_delete=models.PROTECT)
-    uniqueQualities = models.ForeignKey('services.UniqueQualities', null=True,  verbose_name='Уникальные качества', on_delete=models.PROTECT)
-    freeServices = models.ForeignKey('services.FreeServices', null=True, verbose_name='Бесплатные услуги', on_delete=models.PROTECT)
+    equipment = models.ForeignKey('services.Equipment', null=True, verbose_name='Оснащение', on_delete=models.DO_NOTHING)
+    uniqueQualities = models.ForeignKey('services.UniqueQualities', null=True,  verbose_name='Уникальные качества', on_delete=models.DO_NOTHING)
+    freeServices = models.ForeignKey('services.FreeServices', null=True, verbose_name='Бесплатные услуги', on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.name
@@ -78,7 +78,7 @@ class Reservation(models.Model):
 
 class Comments(models.Model):
     text = models.TextField(verbose_name='Текст')
-    place = models.ForeignKey('Place',  null=True, on_delete=models.PROTECT, verbose_name='Место')
+    place = models.ForeignKey('Place',  null=True, on_delete=models.DO_NOTHING, verbose_name='Место')
     user = models.ForeignKey(User, null=True, on_delete=models.PROTECT, verbose_name='ользователь')
 
     def __str__(self):
