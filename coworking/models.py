@@ -67,6 +67,7 @@ class BookedTime(models.Model):
 class Reservation(models.Model):
     booked = models.ForeignKey('BookedTime', null=True, on_delete=models.PROTECT, verbose_name='Время')
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, verbose_name='Пользователь')
+    place = models.ForeignKey(Place, on_delete=models.PROTECT, null=True, verbose_name='Место')
 
     def __str__(self):
         return f'{self.user} - {self.booked}'
