@@ -1,6 +1,8 @@
+from django_filters.rest_framework import DjangoFilterBackend
+
 from services.models import Equipment, UniqueQualities, FreeServices
 from .models import Reservation, Place, BookedTime, Categories, AvailableTime
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from .serializers import ReservationSerializer, UserSerializer, PlaceSerializer, BookedTimeSerializer, \
     CategoriesSerializer, AvailableTimeSerializer, EquipmentSerializer, UniqueQualitiesSerializer, \
     FreeServicesSerializer
@@ -13,6 +15,15 @@ class ReservationViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = ReservationSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['booked']
+
+#
+# class ReservationList(generics.ListAPIView):
+#     queryset = Reservation.objects.all()
+#     serializer_class = ReservationSerializer
+#     filter_backends = [DjangoFilterBackend]
+#     filterset_fields = ['booked']
 
 
 class UserViewSet(viewsets.ModelViewSet):
