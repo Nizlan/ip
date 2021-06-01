@@ -22,7 +22,6 @@ class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
         fields = '__all__'
-        depth = 1
 
 
 class BookedTimeSerializer(serializers.ModelSerializer):
